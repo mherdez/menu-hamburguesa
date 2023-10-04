@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: gainsboro;
+      font-size: 40px;
+      font-family: sans-serif;
+      font-weight: bold;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    header {
+      background-color: teal;
+      padding: 30px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-close {
+      display: none;
+    }
+
+    .btn-menu {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      gap: 50px;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    a:hover {
+      color: white;
+    }
+
+    .show {
+      display: flex;
+    }
+
+    @media (max-width: 1000px) {
+      body {
+        background: bisque;
+      }
+
+      header {
+        position: relative;
+      }
+
+      ul {
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40%;
+        background-color: gray;
+        height: 100vh;
+        margin: 0;
+        padding-top: 120px;
+        display: none;
+      }
+
+      .btn-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1;
+        cursor: pointer;
+      }
+
+      .btn-menu {
+        display: block;
+        font-size: 80px;
+        cursor: pointer;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>⭐️⭐️⭐️</h1>
+    <nav>
+      <div class='btn-close'>✖</div>
+      <ul>
+        <li><a href="#uno">uno</a></li>
+        <li><a href="#dos">dos</a></li>
+        <li><a href="#tres">tres</a></li>
+        <li><a href="#cuatro">cuatro</a></li>
+      </ul>
+    </nav>
+    <div class='btn-menu'>☰</div>
+  </header>
+
+  <script>
+    const btnMenu = document.querySelector('.btn-menu');
+    const ul = document.querySelector('ul');
+    const closeBtn = document.querySelector(".btn-close");
+
+    const toggleFunction = (selector) => {
+      selector.addEventListener('click', () => {
+        ul.classList.toggle('show');
+        closeBtn.classList.toggle('show');
+      });
+    };
+
+    toggleFunction(btnMenu);
+    toggleFunction(closeBtn)
+
+  </script>
+</body>
+
+</html>
