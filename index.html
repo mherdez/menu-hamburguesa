@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+  <style>
+    body {
+      background-color: gainsboro;
+      font-size: 40px;
+      font-family: sans-serif;
+      font-weight: bold;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+    header {
+      background-color: teal;
+      padding: 30px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav ul {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+    }
+    li {
+      list-style: none;
+      cursor: pointer;
+    }
+    li:hover {
+      color: white;
+      user-select: none;
+    }
+    h1 {
+      margin: 0;
+      font-size: 40px;
+      letter-spacing: 10px;
+    }
+    .btn-menu, .btn-close {
+      display: none;
+    }
+
+    @media (max-width: 1000px) {
+      body {
+        background: bisque;
+      }
+      .btn-menu {
+        display: block;
+        cursor: pointer;
+        font-size: 70px;
+      }
+      header {
+        position: relative;
+      }
+      nav {
+        display:none;
+      }
+      .show {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-top: 150px;
+        width: 40%;
+        height: 100vh;
+        background-color: grey;
+      }
+      .show > ul {
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        gap: 50px;
+        padding-left: 70px;
+      }
+      .show .btn-close {
+        display: block;
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        cursor: pointer;
+        font-size: 50px;
+      }
+      .btn-close:hover {
+        color: red;
+      }
+      .btn-menu:hover {
+        color: lightgoldenrodyellow;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>⭐️⭐️⭐️</h1>
+    <nav>
+      <div class='btn-close'>✖</div>
+      <ul>
+        <li>uno</li>
+        <li>dos</li>
+        <li>tres</li>
+        <li>cuatro</li>
+      </ul>
+    </nav>
+    <div class='btn-menu'>☰</div>
+  </header>
+
+    <script>
+      const btnMenu = document.querySelector('.btn-menu');
+      const btnClose = document.querySelector('.btn-close');
+      const menuList = document.querySelector('nav');
+
+      btnMenu.addEventListener('click', () => {
+        menuList.classList.add("show");
+      })
+      btnClose.addEventListener('click', ()=> {
+        menuList.classList.remove("show");
+      })
+
+    </script>
+</body>
+
+</html>
